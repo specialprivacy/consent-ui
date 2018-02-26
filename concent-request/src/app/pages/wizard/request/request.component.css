@@ -1,0 +1,9 @@
+i.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: #a8a5a5;
+}
+
+.highlight{
+    background: rgb(209, 210, 212)
+}

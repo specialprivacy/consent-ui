@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <p
+                        style="max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: -2px; cursor: pointer;"
+                        [matTooltip]="element.name"
+                        matTooltipShowDelay="1000"
+                        matTooltipPosition="above">
+                        {{element.name}}
+                    </p>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell
+                    *matCellDef="let element"
+                    style="text-align: end;">
+                    <div style="display: table; padding-left: 120px; padding-top: 8px;">
+                        <i  *ngFor="let group of groups"
+                            (click)="onGroupClick(group, element)"
+                            class="{{group.icon}} {{disableClass(group, element)}}"
+                            style="padding-right: 13px; cursor: pointer;"
+                            [matTooltip]="group.name"
+                            matTooltipShowDelay="500"
+                            matTooltipPosition="above">
+                        </i>
+                        <mat-checkbox
+                            style="display: table-cell; vertical-align: middle;"
+                            (change)="onChange($event.checked, element)"
+                            [checked]="element.isAccepted"
+                            [indeterminate]="element.isIndeterminate">
+                        </mat-checkbox>
+                    </div>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="['name', 'actions']" style="display: none;"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: ['name', 'actions'];" (click)="onRowClick(row)" [ngClass]="{'highlight': selectedRowId == row.id}"></mat-row>
+        </mat-table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+    <i class="{{(group$ | async).icon}}" style="color: red"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{(item$ | async)?.name}}
+</h1>
+
+<div #contentContainer mat-dialog-content style="height: calc(100% - 100px);">
+    <cr-graph></cr-graph>
+</div>
+
+<div mat-dialog-actions class="pull-right">
+    <button mat-raised-button (click)="onNoClick()" tabindex="-1">Close</button>
+</div>

@@ -1,0 +1,73 @@
+<ul class="nav nav-tabs" role="tablist">
+    <li *ngFor="let group of groups$ | async; first as isFirst" class="nav-item">
+        <a class="nav-link" [class.active]="group === (selectedGroup$ | async)" (click)="onGroupClick(group)" style="cursor: pointer;" role="tab" data-toggle="tab">
+            {{group.name}}<i class="tab-icon {{group.icon}}"></i>
+        </a>
+    </li>
+</ul>
+
+<div class="row" style="margin-top: 5px;">
+    <div class="col-md-11">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb" style="height: 48px;">
+                <li *ngFor="let group of (pathItems$ | async); last as isLast" class="breadcrumb-item" style="padding-left: 3px;">
+                    <div *ngIf="isLast; then lastBlock; else block"></div>
+                    <ng-template #block>
+                        <a (click)="onBreadCrumbItemClick(group)" style="cursor: pointer;">
+                            {{group.name}}
+                            <i class="tab-icon {{group.icon}}" style="cursor: pointer;"></i>
+                        </a>
+                    </ng-template>
+                    <ng-template #lastBlock>
+                        <span *ngIf="isLast" class="breadcrumb-item active">
+                            {{group.name}}
+                            <i class="tab-icon {{group.icon}}"></i>
+                        </span>
+                    </ng-template>
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <div style="margin-top: 5px; padding-left: 20px;">
+        <button mat-mini-fab color="primary" (click)="onHelpClick()">Help</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p class="text-justify"
+            style="
+                padding-left: 22px;
+                padding-right: 22px;
+                padding-bottom: 17px;
+                border-bottom: #b1b1b1;
+                border-left: white;
+                border-width: thin;
+                border-style: solid;
+                border-top: white;
+                border-right: white;">
+            {{(selectedGroup$ | async)?.description}}
+    </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <cr-request></cr-request>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <!-- <cr-video></cr-video> -->
+        <!-- <div style="height: 23px;"></div> -->
+        <cr-graph width="527" height="520" (expandClick)="onExpandClick()"></cr-graph>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 15px;">
+    <div class="col-md-12">
+        <button mat-raised-button color="accent" class="pull-right" (click)="onFinish()">Complete Consent Request</button>
+    </div>
+</div>

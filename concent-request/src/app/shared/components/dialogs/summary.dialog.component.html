@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Summary</h1>
+<div mat-dialog-content>
+    <p>You have generated the following privacy policy:</p>
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="purpose">
+            <mat-header-cell *matHeaderCellDef  mat-sort-header>Purpose</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.purpose}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="data">
+            <mat-header-cell *matHeaderCellDef  mat-sort-header>Data</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.data}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="storage">
+            <mat-header-cell *matHeaderCellDef  mat-sort-header>Storage</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.storage}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="sharing">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Sharing</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sharing}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="processing">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Processing</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.processing}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+    </div>
+
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button (click)="onCloseClick()" tabindex="-1">Back To Consent Request</button>
+    <button mat-raised-button  color="accent" (click)="onOkClick()" tabindex="-1">Go To Questionnaire</button>
+</div>

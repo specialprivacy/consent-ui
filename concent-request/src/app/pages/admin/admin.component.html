@@ -1,0 +1,7 @@
+<h1>Admin Page</h1>
+
+<ul>
+    <li *ngFor="let user of users">
+        <a (click)="onUserClick(user)">{{getUserName(user)}}</a>
+    </li>
+</ul>

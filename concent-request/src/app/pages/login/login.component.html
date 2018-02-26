@@ -1,0 +1,17 @@
+<form class="form-signin" #f="ngForm">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <div *ngIf="errorMessage$ | async" class="alert alert-danger">{{errorMessage$ | async}}</div>
+    <label for="inputUserName" class="sr-only">User name</label>
+    <input id="inputUserName" name="username" ngModel class="form-control" placeholder="User name" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input id="inputPassword" name="password" ngModel class="form-control" placeholder="Password" required type="password">
+
+    <div class="row">
+        <div class="col-md-6">
+            <button (click)="login(f.value)" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </div>
+        <div class="col-md-6">
+            <button (click)="register(f.value)" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        </div>
+    </div>
+</form>

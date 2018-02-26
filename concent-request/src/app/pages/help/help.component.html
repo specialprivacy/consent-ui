@@ -1,0 +1,42 @@
+<h2>User Guide</h2>
+
+<div>
+    <mat-tab-group [(selectedIndex)]="selectedIndex">
+        <mat-tab label="Tabs">
+            <div style="text-align: center; padding: 10px;">
+                <img [src]="'assets/img/help1.png'">
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="accent" (click)="onIntro()">Use Case</button>
+                <button mat-raised-button color="primary" (click)="onGoToTab(1)">Next</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Drill Down">
+            <div style="text-align: center; padding: 10px;">
+                <img [src]="'assets/img/help2.png'">
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="primary" (click)="onGoToTab(0)">Back</button>
+                <button mat-raised-button color="primary" (click)="onGoToTab(2)">Next</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Graph">
+            <div style="text-align: center; padding: 10px;">
+                <img [src]="'assets/img/help3.png'">
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="primary" (click)="onGoToTab(1)">Back</button>
+                <button mat-raised-button color="primary" (click)="onGoToTab(3)">Next</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Buttons">
+            <div style="text-align: center; padding: 10px;">
+                <img [src]="'assets/img/help4.png'">
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="primary" (click)="onGoToTab(2)">Back</button>
+                <button mat-raised-button color="accent" (click)="onStart()">Done</button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,15 @@
+<h1>Home Page</h1>
+<ul>
+    <li *ngIf="appUser">
+        <a routerLink="/wizard">Wizard</a>
+    </li>
+    <li *ngIf="appUser">
+        <a routerLink="/bubbles">Bubbles</a>
+    </li>
+    <li *ngIf="!appUser">
+        <a routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="appUser">
+        <a (click)="authService.logout()">Logout</a>
+    </li>
+</ul>

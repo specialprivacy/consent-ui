@@ -1,0 +1,43 @@
+<h2>Use Case</h2>
+
+<div>
+    <mat-tab-group [(selectedIndex)]="selectedIndex">
+        <mat-tab label="Introduction">
+            <div style="text-align: center; padding: 10px;">
+                <img [src]="'assets/img/tracker.jpg'" style="width: 250px">
+                <p align="justify">Imagine you have bought a <b>wearable appliance</b> for <b>fitness tracking</b> from BeFit, Inc. Before starting using the BeFit device you are reading BeFit’s instructions on how to activate the device.</p>
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="primary" (click)="onGoToTab(1)">Instructions</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Instructions">
+            <div style="padding: 10px;">
+                <p align="justify">Thank You for choosing our device! BeFit Inc. ("<b>BeFit</b>", "<b>we</b>", "<b>us</b>", "<b>our</b>") designs products and tools that track everyday health and fitness to empower and inspire users to lead healthier, more active lives.</p>
+                <p align="justify">To use BeFit device ("<b>Device</b>") you have to activate it by visiting our website https://befit.com/activate and giving your consent for the processing of your data by BeFit. <br/>When activating your Device, you will be presented with an <b>informed consent request</b> for data processing. This informed consent request provides you with the following information: </p>
+                    <ul>
+                        <li><b>what data</b> about you could be processed by BeFit;</li>
+                        <li>what is the <b>purpose</b> for the data processing;</li>
+                        <li><b>where</b> your data are <b>stored</b>;</li>
+                        <li><b>how</b> your data are <b>processed</b>;</li>
+                        <li><b>with whom</b> your data could be <b>shared</b>.</li>
+                    </ul>
+                <p>Our consent request gives you the possibility to review information according to the categories mentioned in the list above. You can also customize your consent by giving permissions to process only specific data categories for chosen purposes, etc.<br>
+                <i>For example, you can allow us to process your <b>resting heart rate</b> (data) to be <b>displayed to you</b> in our app (purpose) by performing <b>on-device calculations</b> (processing) and <b>saving</b> your data <b>on your device</b> (storage) without <b>sharing</b> it with anybody.</i></p>
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="primary" (click)="onGoToTab(0)">Back</button>
+                <button mat-raised-button color="primary" (click)="onGoToTab(2)">Next</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Activate">
+            <div style="text-align: center; padding: 10px;">
+                <p>Click "Activate" button to see how activation would work. You will be presented with a short user guide first and then with the consent request.</p>
+            </div>
+            <div style="padding: 5px; text-align: right;">
+                <button mat-raised-button color="primary" (click)="onGoToTab(1)">Back</button>
+                <button mat-raised-button color="accent" (click)="onStart()">Activate</button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
