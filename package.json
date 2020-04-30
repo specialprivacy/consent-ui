@@ -37,7 +37,7 @@
         "firebase-tools": "^3.17.4",
         "font-awesome": "^4.7.0",
         "immutable": "^3.8.2",
-        "jquery": "^1.12.4",
+        "jquery": "^3.5.0",
         "js-string-compression": "^1.0.1",
         "lodash": "^4.17.4",
         "material-design-icons": "^3.0.1",
